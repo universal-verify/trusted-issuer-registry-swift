@@ -1,0 +1,40 @@
+name: Swift
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  linux-minimum:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    container: swift:6.0
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift build --force-resolved-versions
+
+  linux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    container: swift:6.1
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift test --force-resolved-versions
+
+  apple:
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: macOS tests and formatting
+        run: |
+          swift test --force-resolved-versions
+          swift format lint --strict --recursive Sources Tests Package.swift
+      - name: iOS Simulator tests
+        run: |
+          device_id=$(xcrun simctl list devices available -j | python3 -c 'import json,sys; d=json.load(sys.stdin)["devices"]; print(next(v["udid"] for runtime, devices in d.items() if "iOS" in runtime for v in devices if v["name"].startswith("iPhone")))')
+          xcodebuild test -scheme TrustedIssuerRegistry -destination "platform=iOS Simulator,id=$device_id" -derivedDataPath .build/xcode CODE_SIGNING_ALLOWED=NO
+      - name: iOS 15 deployment target
+        run: xcodebuild build -scheme TrustedIssuerRegistry -destination 'generic/platform=iOS' -derivedDataPath .build/xcode-device IPHONEOS_DEPLOYMENT_TARGET=15.0 CODE_SIGNING_ALLOWED=NO
