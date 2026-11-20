@@ -17,7 +17,7 @@ shared cache and download state belong to the CachedFetcher actor.
 | --- | --- |
 | trusted-issuer-registry.js | Registry.swift |
 | constants.js | Constants.swift and Models.swift |
-| issuer-helper.js | IssuerHelper.swift and IssuerJSON.swift |
+| issuer-helper.js | IssuerHelper.swift, IssuerJSON.swift, and RegistrySnapshot.swift |
 | trust-helper.js | TrustHelper.swift |
 | certificate-helper.js | CertificateHelper.swift and ASN1Helpers.swift |
 | crl-helper.js | CRLHelper.swift |
@@ -58,11 +58,30 @@ immutable Sendable results. Keep these deliberate API differences separate from 
 CRL reason handling preserves PKIjs's implicit reason-bit representation. Validate against the
 JavaScript-generated fixtures before changing that encoding or the scope/coverage rules.
 
+## Maintaining JavaScript parity
+
+The last reviewed JS release is **0.2.4**, commit
+[`1731acd`](https://github.com/universal-verify/trusted-issuer-registry/commit/1731acd4970e6663cec97a349c34ff4010476051).
+The registry protocol is `0.2`. The runtime change since 0.2.2 is offline registry snapshots. The
+JavaScript repository owns issuer updates, snapshot generation, signing, and publishing.
+
+For each JS release, compare against the reviewed commit and check runtime code, declarations, schema,
+tests, and runtime dependencies. Issuer refreshes and changes to publishing tools can ship upstream
+independently. Port consumer-facing behavior, add fixed JS-derived cases with their actual source
+commit, and run the platform checks. Update the reviewed baseline and changelog after the comparison.
+Keep the provenance of existing fixtures when moving that baseline forward.
+
 ## Parity fixtures
 
 Tests/TrustedIssuerRegistryTests/Fixtures/runtime.json contains checked-in public certificates,
 signatures, CRLs, and expected JS results. Tests run offline without Node or a deployed registry.
 Test signing keys are transient and not saved. One actual signed issuer sample checks the production key.
+
+`Tests/TrustedIssuerRegistryTests/Fixtures/snapshot.json` reuses the Kotlin port's 14 JS-generated
+snapshot cases. The file records the JS release and source commit. To refresh it, run
+`node test-support/generate-snapshot-fixtures.mjs` in the sibling Kotlin checkout with dependencies
+installed in a clean JS checkout. Copy the resulting `src/test/resources/fixtures/snapshot.json`
+to Swift's fixtures directory. The tests need only the checked-in files.
 
 To regenerate with sibling js/ and swift/ checkouts:
 
@@ -84,7 +103,7 @@ issuer importers, or private signing material.
 
 CI builds on Linux Swift 6.0 and runs Linux Swift 6.1 and macOS tests, formatting, iOS Simulator tests,
 and an iOS 15 target build.
-The suite covers JS trust parity, signatures, canonical bytes, CRL scope/reasons, cache policy,
+The suite covers JS trust parity, snapshots, signatures, canonical bytes, CRL scope/reasons, cache policy,
 concurrent callers, and cancellation. Signed malformed certificate fixtures check optional-field
 validation. Separate rejection tests cover the documented RSA key-size and PSS limits; these are
 intentional differences from JavaScript. Malformed data signatures must expose RegistryError across
@@ -101,42 +120,23 @@ embedded signing certificate only as an explicit protocol compatibility update.
 
 ## Publishing
 
-The first release is `0.1.0`. SwiftPM identifies source-package versions using semantic-version Git
-tags; the manifest does not contain this package's own version. Publishing requires pushing the
-source and its tag to the [GitHub repository](https://github.com/universal-verify/trusted-issuer-registry-swift).
-No archive upload or package-registry account is needed for Git-based installation. See
+SwiftPM resolves the source package from semantic-version Git tags. Update the changelog and validate
+the release commit. Update the README's installation version when starting a new minor line. Use a
+patch version for compatible fixes and a new minor version for new features or breaking API changes
+while pre-1.0.
+
+Push the release commit to GitHub and wait for all checks. Tag that commit, substituting the version
+you are releasing:
+
+```sh
+version=0.2.0
+git tag -a "$version" -m "TrustedIssuerRegistry $version"
+git push origin "$version"
+```
+
+The tag makes the version available to SwiftPM. You can also create a GitHub Release from the tag
+with the matching changelog entry as its notes. See
 [Apple's publishing guide](https://developer.apple.com/documentation/xcode/publishing-a-swift-package-with-xcode).
 
-For the initial release, run from the root of the Swift repository:
-
-```sh
-git add .gitignore .github Package.swift Package.resolved Sources Tests README.md CONTRIBUTING.md CHANGELOG.md LICENSE
-git commit -m "Prepare TrustedIssuerRegistry 0.1.0"
-git push origin main
-```
-
-Wait for every GitHub Actions check to pass for that commit, then tag the tested commit and push
-the tag:
-
-```sh
-git tag -a 0.1.0 -m "TrustedIssuerRegistry 0.1.0"
-git push origin 0.1.0
-```
-
-Consumers can then resolve `0.1.0` using the repository URL. Keep `Package.swift` at the repository
-root and make the repository public for unauthenticated installation.
-
-Optionally create a GitHub Release from the existing `0.1.0` tag with the changelog entry as its notes.
-The tag is sufficient for SwiftPM; the GitHub Release makes the notes easier to find. If using GitHub CLI:
-
-```sh
-gh release create 0.1.0 --verify-tag --title "0.1.0" --notes-file CHANGELOG.md
-```
-
 For discoverability, submit the public repository URL to the
-[Swift Package Index](https://swiftpackageindex.com/add-a-package). Indexing is optional for installation.
-
-For later releases, update the changelog, commit and validate the source, then create a new tag.
-Use `0.1.x` for compatible fixes; use a new minor version for new features or breaking API changes
-while pre-1.0. Update the README's installation version when starting a new minor line. The registry
-data compatibility pin remains independent of Swift package releases.
+[Swift Package Index](https://swiftpackageindex.com/add-a-package).

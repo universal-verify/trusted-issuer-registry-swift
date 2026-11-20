@@ -2,8 +2,8 @@ import Foundation
 
 func resolveTrust(
   _ certificate: ParsedCertificate?, options: ResolveCertificateTrustOptions,
-  userIssuers: [String: Issuer], fetcher: CachedFetcher, mode: RevocationCheckMode,
-  clock: RegistryClock
+  userIssuers: [String: Issuer], fetcher: CachedFetcher, snapshotSource: RegistrySnapshotSource?,
+  mode: RevocationCheckMode, clock: RegistryClock
 ) async throws -> CertificateTrustResult {
   try Task.checkCancellation()
   guard let certificate else {
@@ -20,7 +20,8 @@ func resolveTrust(
   var fetchFailed = false
   if !options.trustLists.isEmpty {
     do {
-      registryIssuer = try await getRegistryIssuerFromX509AKI(aki, fetcher: fetcher)
+      registryIssuer = try await getRegistryIssuerFromX509AKI(
+        aki, fetcher: fetcher, snapshotSource: snapshotSource)
     } catch is CancellationError { throw CancellationError() } catch { fetchFailed = true }
   }
   let issuer = mergeIssuers(userIssuers[aki], registryIssuer)

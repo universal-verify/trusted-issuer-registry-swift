@@ -21,7 +21,8 @@ jobs:
     container: swift:6.1
     steps:
       - uses: actions/checkout@v4
-      - run: swift test --force-resolved-versions
+      # SwiftPM can stall without a terminal in the Swift 6.1 container.
+      - run: script -q -e -c 'swift test --force-resolved-versions' /dev/null
 
   apple:
     runs-on: macos-latest

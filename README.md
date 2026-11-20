@@ -15,7 +15,7 @@ The [Trusted Issuer Registry](https://github.com/universal-verify/trusted-issuer
 
 Issuer records contain certificates, source trust lists, trust scopes, and display metadata. Records are cryptographically signed and distributed through jsDelivr. This library verifies their signatures before using them.
 
-Lookups use the latest published patch of registry version `0.2`, so issuer updates do not require a Swift package upgrade, subject to the library's cache and [CDN caching](https://github.com/jsdelivr/jsdelivr#caching).
+By default, lookups use the latest published patch of registry version `0.2`, so issuer updates do not require a Swift package upgrade, subject to the library's cache and [CDN caching](https://github.com/jsdelivr/jsdelivr#caching). For a fixed set of signed issuers, supply an [offline registry snapshot](#offline-registry-snapshots).
 
 ## Trust Model
 
@@ -33,12 +33,12 @@ The shared governance and risk documentation is maintained with the registry:
 
 ## Quick Start
 
-In Xcode, use **Add Package Dependencies** with this repository's URL and choose **Up to Next Minor Version** starting at `0.1.0`. For Swift Package Manager, add:
+In Xcode, use **Add Package Dependencies** with this repository's URL and choose **Up to Next Minor Version** starting at `0.2.0`. For Swift Package Manager, add:
 
 ```swift
 .package(
     url: "https://github.com/universal-verify/trusted-issuer-registry-swift.git",
-    .upToNextMinor(from: "0.1.0")
+    .upToNextMinor(from: "0.2.0")
 )
 ```
 
@@ -63,7 +63,7 @@ if result.trusted, let issuer = result.issuer {
 }
 ```
 
-**Select trust lists explicitly to query the registry.** An empty `trustLists` array, including the default, uses only user-provided issuers and makes no CDN request.
+**Select trust lists explicitly to query the registry.** An empty `trustLists` array, including the default, uses only user-provided issuers and skips registry lookup.
 
 ## API Reference
 
@@ -130,6 +130,7 @@ Creates a thread-safe client. Initialization throws for invalid configuration or
 | `timeout` | `TimeInterval` | `10` | Per-caller download deadline in seconds, including the response body |
 | `cacheEnabled` | `Bool` | `true` | Cache issuer, deprecation, and CRL responses in memory |
 | `cacheTTL` | `TimeInterval` | `86_400` | Maximum cache lifetime in seconds; 24 hours |
+| `registrySnapshot` | `RegistrySnapshot?` | `nil` | Fixed set of signed issuers for offline registry lookups |
 
 Timeout must be positive and finite; cache lifetime must be non-negative and finite. The download deadline applies to each issuer, deprecation, or CRL request, not the entire trust resolution.
 
@@ -177,6 +178,25 @@ Custom certificates require a Subject Key Identifier (SKI). Entries with the sam
 Custom certificates receive `.userProvided` provenance. They bypass registry trust-list filtering while still undergoing signature, validity, optional scope, and optional revocation checks.
 
 **Caching:** each instance retains up to 1,024 responses with LRU eviction. Valid signed issuers, issuer 404s, and completed CRL/deprecation responses are cached; completed malformed CRL/deprecation bodies can also be cached. Network errors, timeouts, and other HTTP errors are not cached. Future CRL `nextUpdate` dates can shorten the cache lifetime. Concurrent downloads are shared even with caching disabled; each caller has an independent timeout and cancellation.
+
+#### Offline registry snapshots
+
+Download a specific JS registry release's `build/registry.json`, such as [registry 0.2.4](https://cdn.jsdelivr.net/npm/trusted-issuer-registry@0.2.4/build/registry.json), and bundle it with your app or store it on disk. Load the file with `RegistrySnapshot(json:)`:
+
+```swift
+import Foundation
+import TrustedIssuerRegistry
+
+let snapshot = try RegistrySnapshot(json: Data(contentsOf: snapshotFileURL))
+let registry = try Registry(options: .init(registrySnapshot: snapshot))
+let result = try await registry.resolveCertificateTrust(
+    certificatePEM, options: .init(trustLists: [.uv])
+)
+```
+
+The file contains an `issuers` array of signed issuer records and an optional informational `version` string, available as `snapshot.version`. An empty issuer array is valid. The initializer rejects malformed input and duplicate IDs. Each issuer signature is checked on first use with the same key as the live registry, and the result is retained independently of the HTTP cache.
+
+Snapshot mode skips registry and deprecation requests even for a missing or invalid issuer. Custom issuer merging, trust lists, and scopes still apply. Keep `revocationCheckMode` at its default of `.skip` for fully offline operation. Other modes may contact CRL endpoints. Replace the file when you want to refresh its issuer data.
 
 #### `Registry.minorVersion`
 
@@ -241,11 +261,11 @@ Looks up issuer metadata without evaluating certificate trust.
 let issuer = try await registry.getIssuerFromX509AKI("TprRzaFBJ1SLjJsO01tlLCQ4YF0")
 ```
 
-The CDN is always checked, using cached data when available, even with a matching custom issuer. A 404 still permits custom issuer data to be returned. Other request failures throw. Merge precedence and ordering follow `resolveCertificateTrust`. Unmerged registry entries retain their signature; merged entries omit it. This method does not add per-certificate trust results.
+Looks up the issuer in the configured snapshot or on the CDN, even with a matching custom issuer. An absent snapshot record or a CDN 404 still permits custom issuer data to be returned. An invalid snapshot signature or other request failure throws. Merge precedence and ordering follow `resolveCertificateTrust`. Unmerged registry entries retain their signature; merged entries omit it. This method does not add per-certificate trust results.
 
 #### `getEndOfLifeDate()`
 
-Retrieves the applicable registry deprecation notice. Returns `Date?`, nil for a 404 or when no applicable notice exists. Request failures and invalid responses throw.
+Retrieves the applicable registry deprecation notice. Returns `Date?`, nil in snapshot mode, for a 404, or when no applicable notice exists. Request failures and invalid responses throw.
 
 ```swift
 if let endOfLife = try await registry.getEndOfLifeDate() {
@@ -304,9 +324,9 @@ Implement `HTTPTransport.download(_ url: URL) async throws -> HTTPResponse`, ret
 
 | Error | Meaning |
 | --- | --- |
-| `RegistryError.invalidConfiguration` | Invalid timeout/cache lifetime, AKI, or custom issuer configuration |
+| `RegistryError.invalidConfiguration` | Invalid timeout/cache lifetime, AKI, registry snapshot, or custom issuer configuration |
 | `RegistryError.malformedCertificate` | Certificate parsing failed |
-| `RegistryError.malformedResponse` | Malformed registry JSON, including duplicate properties, or malformed data-signature encoding |
+| `RegistryError.malformedResponse` | Malformed live registry JSON, an invalid snapshot issuer signature or record, or malformed data-signature encoding |
 | `RegistryError.unsupportedAlgorithm` | Unsupported keys or signature options |
 | `RegistryError.httpStatus` | Request returned an unsuccessful status other than the handled 404 cases |
 | `RegistryError.timeout` | A caller's download deadline expired |
@@ -362,7 +382,7 @@ The issuer URL format is `https://cdn.jsdelivr.net/npm/trusted-issuer-registry@{
 
 ## Versioning and Deprecation
 
-Swift package releases are independent of registry-data releases. Swift package `0.1.0` uses registry minor version `0.2`. Registry patch releases update issuer data; registry minor releases may change the schema or trust protocol. Older registry lines receive updates until their announced end-of-life date, with deprecation notices published 90 days in advance. Use `getEndOfLifeDate()` to check the registry version used by the client.
+Swift package releases are independent of registry-data releases. Swift package `0.2.0` uses registry minor version `0.2`. Registry patch releases update issuer data; registry minor releases may change the schema or trust protocol. Older registry lines receive updates until their announced end-of-life date, with deprecation notices published 90 days in advance. Use `getEndOfLifeDate()` to check the registry version used by the client.
 
 ## Platform Support and Compatibility
 

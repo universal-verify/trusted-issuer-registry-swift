@@ -8,6 +8,12 @@ enum CanonicalJSON {
     guard case .object(let object) = try RegistryJSON.parse(bytes) else {
       throw RegistryError.malformedResponse("Issuer JSON must be an object")
     }
+    return try issuerBytes(object)
+  }
+
+  static func issuerBytes(_ object: RegistryJSONObject) throws
+    -> (data: Data, signature: String?, object: RegistryJSONObject)
+  {
     let signature: String?
     if case .string(let value)? = object.value("signature") {
       signature = try value.string()

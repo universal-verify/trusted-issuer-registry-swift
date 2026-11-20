@@ -5,6 +5,7 @@ import X509
 public final class Registry: Sendable {
   public static let minorVersion = Constants.minorVersion
   private let fetcher: CachedFetcher
+  private let snapshotSource: RegistrySnapshotSource?
   private let userIssuers: [String: Issuer]
   private let revocationCheckMode: RevocationCheckMode
   private let clock: RegistryClock
@@ -28,12 +29,18 @@ public final class Registry: Sendable {
     userIssuers = try buildUserTrustedIssuers(options.trustedIssuerCertificates)
     revocationCheckMode = options.revocationCheckMode
     self.clock = clock
+    snapshotSource = options.registrySnapshot.map {
+      RegistrySnapshotSource($0, signingCertificate: signingCertificate)
+    }
     fetcher = CachedFetcher(
       options: options, transport: transport, clock: clock,
       signingCertificate: signingCertificate)
   }
 
+  /// Returns nil in snapshot mode; otherwise checks for an applicable deprecation notice.
   public func getEndOfLifeDate() async throws -> Date? {
+    try Task.checkCancellation()
+    if snapshotSource != nil { return nil }
     let response = try await fetcher.fetch(
       URL(string: Constants.registryURL + "/deprecation_notice.json")!, purpose: .deprecation)
     if response.http.statusCode == 404 { return nil }
@@ -56,9 +63,10 @@ public final class Registry: Sendable {
     return Date(timeIntervalSince1970: timestamp)
   }
 
-  /// Always checks the CDN, including when there is a matching custom issuer.
+  /// Checks the snapshot or live registry and merges a matching custom issuer.
   public func getIssuerFromX509AKI(_ x509AKI: String) async throws -> Issuer? {
-    let registryIssuer = try await getRegistryIssuerFromX509AKI(x509AKI, fetcher: fetcher)
+    let registryIssuer = try await getRegistryIssuerFromX509AKI(
+      x509AKI, fetcher: fetcher, snapshotSource: snapshotSource)
     if let user = userIssuers[x509AKI] { return mergeIssuers(user, registryIssuer) }
     return registryIssuer
   }
@@ -81,20 +89,18 @@ public final class Registry: Sendable {
   ) async throws -> CertificateTrustResult {
     try await resolveTrust(
       certificate, options: options, userIssuers: userIssuers,
-      fetcher: fetcher, mode: revocationCheckMode, clock: clock)
+      fetcher: fetcher, snapshotSource: snapshotSource, mode: revocationCheckMode, clock: clock)
   }
 }
 
-func getRegistryIssuerFromX509AKI(_ aki: String, fetcher: CachedFetcher) async throws -> Issuer? {
+func getRegistryIssuerFromX509AKI(
+  _ aki: String, fetcher: CachedFetcher, snapshotSource: RegistrySnapshotSource?
+) async throws -> Issuer? {
   // AKIs are unpadded base64url, and must remain a single URL path component.
-  guard !aki.isEmpty,
-    aki.utf8.allSatisfy({
-      (65...90).contains($0) || (97...122).contains($0) || (48...57).contains($0) || $0 == 45
-        || $0 == 95
-    })
-  else {
+  guard isValidX509AKI(aki) else {
     throw RegistryError.invalidConfiguration("AKI must be unpadded base64url")
   }
+  if let snapshotSource { return try await snapshotSource.issuer(for: aki) }
   let url = URL(string: Constants.registryURL + "/issuers/x509_aki/\(aki).json")!
   let response = try await fetcher.fetch(url, purpose: .issuer)
   if !response.http.isSuccess && response.http.statusCode != 404 {

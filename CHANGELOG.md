@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+- Added `RegistrySnapshot(json:)` and `RegistryOptions.registrySnapshot` for offline issuer lookups using the JS registry's published `build/registry.json`.
+- Snapshot mode verifies signed issuers on first use and skips live registry and deprecation requests. Custom issuer merging, trust-list and scope checks, and optional CRL requests still apply.
+- Added 14 JavaScript-derived snapshot scenarios and tests for strict loading, signature verification, and concurrent lookups. Live lookups continue to use registry protocol `0.2`.
+
 ## 0.1.0
 
 Initial release of `TrustedIssuerRegistry` for Swift 6.0+, iOS 15+, macOS 12+, and Linux.

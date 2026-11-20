@@ -12,13 +12,32 @@ func verifiedIssuer(_ bytes: Data, signingCertificate: String = Constants.signin
   do { canonical = try CanonicalJSON.issuerBytes(bytes) } catch {
     throw RegistryError.malformedResponse(String(describing: error))
   }
+  return try verifiedIssuer(canonical, signingCertificate: signingCertificate)
+}
+
+func verifiedIssuer(_ object: RegistryJSONObject, signingCertificate: String) throws -> Issuer? {
+  try verifiedIssuer(CanonicalJSON.issuerBytes(object), signingCertificate: signingCertificate)
+}
+
+private func verifiedIssuer(
+  _ canonical: (data: Data, signature: String?, object: RegistryJSONObject),
+  signingCertificate: String
+) throws -> Issuer? {
   guard let signature = canonical.signature,
     (try? verifySignatureWithPem(signingCertificate, signature: signature, data: canonical.data))
       == true
   else {
     return nil
   }
-  return try decodeIssuer(canonical.object, signature: canonical.signature)
+  return try decodeIssuer(canonical.object, signature: signature)
+}
+
+func isValidX509AKI(_ aki: String) -> Bool {
+  !aki.isEmpty
+    && aki.utf8.allSatisfy {
+      (65...90).contains($0) || (97...122).contains($0) || (48...57).contains($0) || $0 == 45
+        || $0 == 95
+    }
 }
 
 func mergeIssuers(_ user: Issuer?, _ registry: Issuer?) -> Issuer? {

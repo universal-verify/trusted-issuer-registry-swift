@@ -1,0 +1,603 @@
+{
+  "sourceCommit": "1731acd4970e6663cec97a349c34ff4010476051",
+  "sourceVersion": "0.2.4",
+  "now": "2026-11-20T00:00:00Z",
+  "aki": "rX7vmMbQz-Qkb83hZ7xXO4PRJKA",
+  "certificates": {
+    "issuer": "-----BEGIN CERTIFICATE-----\nMIIDCjCCApGgAwIBAgIUT7ewHKPNZzGl5ElpnnFlquqtE58wCgYIKoZIzj0EAwMw\nZDEWMBQGA1UEAwwNbW5jbWRvY1Jvb3RDQTE9MDsGA1UECgw0SmFwYW4gQWdlbmN5\nIGZvciBMb2NhbCBBdXRob3JpdHkgSW5mb3JtYXRpb24gU3lzdGVtczELMAkGA1UE\nBhMCSlAwHhcNMjUwMTI5MDIyMzA0WhcNMzAwNTI4MDIyMzAzWjBkMRYwFAYDVQQD\nDA1tbmNtZG9jUm9vdENBMT0wOwYDVQQKDDRKYXBhbiBBZ2VuY3kgZm9yIExvY2Fs\nIEF1dGhvcml0eSBJbmZvcm1hdGlvbiBTeXN0ZW1zMQswCQYDVQQGEwJKUDB2MBAG\nByqGSM49AgEGBSuBBAAiA2IABPs5eNtlqJyCoVQwJao/duWq/kKCD1gqK4jtKUrB\nmnwHQTHjZrIcmTajXjQEsNutsCtZ/ojqeXm/8yCJiCN9OiR2WfqGbnPtQzE2+Ytf\njmxSoPicmEu9dQdXv21VNBlBSaOCAQIwgf8wEgYDVR0TAQH/BAgwBgEB/wIBADAf\nBgNVHSMEGDAWgBStfu+YxtDP5CRvzeFnvFc7g9EkoDAjBgNVHRIEHDAahhhodHRw\nczovL3d3dy5qLWxpcy5nby5qcC8wIwYDVR0RBBwwGoYYaHR0cHM6Ly93d3cuai1s\naXMuZ28uanAvME8GA1UdHwRIMEYwRKBCoECGPmh0dHBzOi8vZHRzLm1kb2MtaWFj\nYS5kaWdpdGFsLmdvLmpwL2NlcnRpZmljYXRlL2xhdGVzdC9tbmMuY3JsMB0GA1Ud\nDgQWBBStfu+YxtDP5CRvzeFnvFc7g9EkoDAOBgNVHQ8BAf8EBAMCAQYwCgYIKoZI\nzj0EAwMDZwAwZAIwfvAoBLAvEguWEqdFOiDsLo40FLIKjOQS1V6/6vo5vI8qd/aa\nF8ATsq7kz5v3D6qUAjATlIU/74tGYia0+aBIQ8+LOvAD9J7C51R64uvi6kf5lgdy\n09mop3x9Wxf+Ofy3nrE=\n-----END CERTIFICATE-----",
+    "noAKI": "-----BEGIN CERTIFICATE-----\nMIIBijCCAS+gAwIBAgIBZDAKBggqhkjOPQQDAjAvMS0wCQYDVQQGEwJVUzAMBgNV\nBAgMBVVTLVZBMBIGA1UEAwwLVGVzdCBpc3N1ZXIwIhgPMjAwMDAxMDEwMDAwMDBa\nGA8yMDAxMDEwMTAwMDAwMFowMzExMAkGA1UEBhMCVVMwDAYDVQQIDAVVUy1WQTAW\nBgNVBAMMD0RvY3VtZW50IHNpZ25lcjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IA\nBHDVQM11HEEwxrbGy94p85uoDMuoyfHF0F37tHHwd0nkqgD+ZK4iqs7G2TTD8nbW\nrB59zg61/2HMNRtInYUfuS+jNDAyMDAGA1UdHwQpMCcwJaAjoCGGH2h0dHBzOi8v\nZXhhbXBsZS50ZXN0L2lzc3Vlci5jcmwwCgYIKoZIzj0EAwIDSQAwRgIhALfA0EQW\n87FUoXnbbEshvx9Hy2nOBTVpbXttg5MRphU7AiEA6BlYwDIW/RLqEb8SWaKOao65\nNGqSm3uwImXZvgMI+uk=\n-----END CERTIFICATE-----"
+  },
+  "snapshots": {
+    "valid": {
+      "version": "informational",
+      "issuers": [
+        {
+          "issuer_id": "x509_aki:rX7vmMbQz-Qkb83hZ7xXO4PRJKA",
+          "entity_type": "government",
+          "entity_metadata": {
+            "country": "JP"
+          },
+          "display": {
+            "name": "Japan Agency for Local Authority Information Systems"
+          },
+          "trust_scopes": [
+            "government_issued_id"
+          ],
+          "certificates": [
+            {
+              "data": "-----BEGIN CERTIFICATE-----\nMIIDCjCCApGgAwIBAgIUT7ewHKPNZzGl5ElpnnFlquqtE58wCgYIKoZIzj0EAwMw\nZDEWMBQGA1UEAwwNbW5jbWRvY1Jvb3RDQTE9MDsGA1UECgw0SmFwYW4gQWdlbmN5\nIGZvciBMb2NhbCBBdXRob3JpdHkgSW5mb3JtYXRpb24gU3lzdGVtczELMAkGA1UE\nBhMCSlAwHhcNMjUwMTI5MDIyMzA0WhcNMzAwNTI4MDIyMzAzWjBkMRYwFAYDVQQD\nDA1tbmNtZG9jUm9vdENBMT0wOwYDVQQKDDRKYXBhbiBBZ2VuY3kgZm9yIExvY2Fs\nIEF1dGhvcml0eSBJbmZvcm1hdGlvbiBTeXN0ZW1zMQswCQYDVQQGEwJKUDB2MBAG\nByqGSM49AgEGBSuBBAAiA2IABPs5eNtlqJyCoVQwJao/duWq/kKCD1gqK4jtKUrB\nmnwHQTHjZrIcmTajXjQEsNutsCtZ/ojqeXm/8yCJiCN9OiR2WfqGbnPtQzE2+Ytf\njmxSoPicmEu9dQdXv21VNBlBSaOCAQIwgf8wEgYDVR0TAQH/BAgwBgEB/wIBADAf\nBgNVHSMEGDAWgBStfu+YxtDP5CRvzeFnvFc7g9EkoDAjBgNVHRIEHDAahhhodHRw\nczovL3d3dy5qLWxpcy5nby5qcC8wIwYDVR0RBBwwGoYYaHR0cHM6Ly93d3cuai1s\naXMuZ28uanAvME8GA1UdHwRIMEYwRKBCoECGPmh0dHBzOi8vZHRzLm1kb2MtaWFj\nYS5kaWdpdGFsLmdvLmpwL2NlcnRpZmljYXRlL2xhdGVzdC9tbmMuY3JsMB0GA1Ud\nDgQWBBStfu+YxtDP5CRvzeFnvFc7g9EkoDAOBgNVHQ8BAf8EBAMCAQYwCgYIKoZI\nzj0EAwMDZwAwZAIwfvAoBLAvEguWEqdFOiDsLo40FLIKjOQS1V6/6vo5vI8qd/aa\nF8ATsq7kz5v3D6qUAjATlIU/74tGYia0+aBIQ8+LOvAD9J7C51R64uvi6kf5lgdy\n09mop3x9Wxf+Ofy3nrE=\n-----END CERTIFICATE-----",
+              "format": "pem",
+              "trust_lists": [
+                "uv"
+              ]
+            }
+          ],
+          "signature": "MEUCIDIFDlQ5+jUJ7hb+3WflW5kDojbio/l0sa42Y4WA49HgAiEAhABgH40pWoA0RpdWKed5pFPjguhXore9lPw5Xmn62p8="
+        }
+      ]
+    },
+    "empty": {
+      "issuers": []
+    },
+    "tampered": {
+      "issuers": [
+        {
+          "issuer_id": "x509_aki:rX7vmMbQz-Qkb83hZ7xXO4PRJKA",
+          "entity_type": "government",
+          "entity_metadata": {
+            "country": "JP"
+          },
+          "display": {
+            "name": "Forged issuer"
+          },
+          "trust_scopes": [
+            "government_issued_id"
+          ],
+          "certificates": [
+            {
+              "data": "-----BEGIN CERTIFICATE-----\nMIIDCjCCApGgAwIBAgIUT7ewHKPNZzGl5ElpnnFlquqtE58wCgYIKoZIzj0EAwMw\nZDEWMBQGA1UEAwwNbW5jbWRvY1Jvb3RDQTE9MDsGA1UECgw0SmFwYW4gQWdlbmN5\nIGZvciBMb2NhbCBBdXRob3JpdHkgSW5mb3JtYXRpb24gU3lzdGVtczELMAkGA1UE\nBhMCSlAwHhcNMjUwMTI5MDIyMzA0WhcNMzAwNTI4MDIyMzAzWjBkMRYwFAYDVQQD\nDA1tbmNtZG9jUm9vdENBMT0wOwYDVQQKDDRKYXBhbiBBZ2VuY3kgZm9yIExvY2Fs\nIEF1dGhvcml0eSBJbmZvcm1hdGlvbiBTeXN0ZW1zMQswCQYDVQQGEwJKUDB2MBAG\nByqGSM49AgEGBSuBBAAiA2IABPs5eNtlqJyCoVQwJao/duWq/kKCD1gqK4jtKUrB\nmnwHQTHjZrIcmTajXjQEsNutsCtZ/ojqeXm/8yCJiCN9OiR2WfqGbnPtQzE2+Ytf\njmxSoPicmEu9dQdXv21VNBlBSaOCAQIwgf8wEgYDVR0TAQH/BAgwBgEB/wIBADAf\nBgNVHSMEGDAWgBStfu+YxtDP5CRvzeFnvFc7g9EkoDAjBgNVHRIEHDAahhhodHRw\nczovL3d3dy5qLWxpcy5nby5qcC8wIwYDVR0RBBwwGoYYaHR0cHM6Ly93d3cuai1s\naXMuZ28uanAvME8GA1UdHwRIMEYwRKBCoECGPmh0dHBzOi8vZHRzLm1kb2MtaWFj\nYS5kaWdpdGFsLmdvLmpwL2NlcnRpZmljYXRlL2xhdGVzdC9tbmMuY3JsMB0GA1Ud\nDgQWBBStfu+YxtDP5CRvzeFnvFc7g9EkoDAOBgNVHQ8BAf8EBAMCAQYwCgYIKoZI\nzj0EAwMDZwAwZAIwfvAoBLAvEguWEqdFOiDsLo40FLIKjOQS1V6/6vo5vI8qd/aa\nF8ATsq7kz5v3D6qUAjATlIU/74tGYia0+aBIQ8+LOvAD9J7C51R64uvi6kf5lgdy\n09mop3x9Wxf+Ofy3nrE=\n-----END CERTIFICATE-----",
+              "format": "pem",
+              "trust_lists": [
+                "uv"
+              ]
+            }
+          ],
+          "signature": "MEUCIDIFDlQ5+jUJ7hb+3WflW5kDojbio/l0sa42Y4WA49HgAiEAhABgH40pWoA0RpdWKed5pFPjguhXore9lPw5Xmn62p8="
+        }
+      ]
+    },
+    "tombstone": {
+      "issuers": [
+        {
+          "issuer_id": "x509_aki:6TUKCCDc7eWtyioiOjoDMSChidw",
+          "entity_type": "government",
+          "entity_metadata": {
+            "country": "US",
+            "region": "CO"
+          },
+          "display": {
+            "name": "Colorado Department of Revenue"
+          },
+          "trust_scopes": [
+            "government_issued_id"
+          ],
+          "certificates": [],
+          "signature": "MEUCIQDl9NOPU0HS7X3uhgCrnw3r5kPkn9O4t0Efu8qJAcU1TAIgEKhyIpHn6rtV9IO8rUdakFKg/RVs+1MUQc1WXr70cNM="
+        }
+      ]
+    }
+  },
+  "cases": [
+    {
+      "snapshot": "valid",
+      "custom": [],
+      "mode": "skip",
+      "trustLists": [
+        "uv"
+      ],
+      "input": "issuer",
+      "label": "signed snapshot",
+      "scope": "government_issued_id",
+      "expected": {
+        "trusted": true,
+        "issuer": {
+          "issuer_id": "x509_aki:rX7vmMbQz-Qkb83hZ7xXO4PRJKA",
+          "entity_type": "government",
+          "entity_metadata": {
+            "country": "JP"
+          },
+          "display": {
+            "name": "Japan Agency for Local Authority Information Systems"
+          },
+          "trust_scopes": [
+            "government_issued_id"
+          ],
+          "certificates": [
+            {
+              "data": "-----BEGIN CERTIFICATE-----\nMIIDCjCCApGgAwIBAgIUT7ewHKPNZzGl5ElpnnFlquqtE58wCgYIKoZIzj0EAwMw\nZDEWMBQGA1UEAwwNbW5jbWRvY1Jvb3RDQTE9MDsGA1UECgw0SmFwYW4gQWdlbmN5\nIGZvciBMb2NhbCBBdXRob3JpdHkgSW5mb3JtYXRpb24gU3lzdGVtczELMAkGA1UE\nBhMCSlAwHhcNMjUwMTI5MDIyMzA0WhcNMzAwNTI4MDIyMzAzWjBkMRYwFAYDVQQD\nDA1tbmNtZG9jUm9vdENBMT0wOwYDVQQKDDRKYXBhbiBBZ2VuY3kgZm9yIExvY2Fs\nIEF1dGhvcml0eSBJbmZvcm1hdGlvbiBTeXN0ZW1zMQswCQYDVQQGEwJKUDB2MBAG\nByqGSM49AgEGBSuBBAAiA2IABPs5eNtlqJyCoVQwJao/duWq/kKCD1gqK4jtKUrB\nmnwHQTHjZrIcmTajXjQEsNutsCtZ/ojqeXm/8yCJiCN9OiR2WfqGbnPtQzE2+Ytf\njmxSoPicmEu9dQdXv21VNBlBSaOCAQIwgf8wEgYDVR0TAQH/BAgwBgEB/wIBADAf\nBgNVHSMEGDAWgBStfu+YxtDP5CRvzeFnvFc7g9EkoDAjBgNVHRIEHDAahhhodHRw\nczovL3d3dy5qLWxpcy5nby5qcC8wIwYDVR0RBBwwGoYYaHR0cHM6Ly93d3cuai1s\naXMuZ28uanAvME8GA1UdHwRIMEYwRKBCoECGPmh0dHBzOi8vZHRzLm1kb2MtaWFj\nYS5kaWdpdGFsLmdvLmpwL2NlcnRpZmljYXRlL2xhdGVzdC9tbmMuY3JsMB0GA1Ud\nDgQWBBStfu+YxtDP5CRvzeFnvFc7g9EkoDAOBgNVHQ8BAf8EBAMCAQYwCgYIKoZI\nzj0EAwMDZwAwZAIwfvAoBLAvEguWEqdFOiDsLo40FLIKjOQS1V6/6vo5vI8qd/aa\nF8ATsq7kz5v3D6qUAjATlIU/74tGYia0+aBIQ8+LOvAD9J7C51R64uvi6kf5lgdy\n09mop3x9Wxf+Ofy3nrE=\n-----END CERTIFICATE-----",
+              "format": "pem",
+              "trust_lists": [
+                "uv"
+              ],
+              "trusted": true,
+              "revocationStatus": "not_checked",
+              "untrustedReasons": []
+            }
+          ]
+        },
+        "untrustedReasons": []
+      },
+      "crlRequests": 0
+    },
+    {
+      "snapshot": "valid",
+      "custom": [],
+      "mode": "skip",
+      "trustLists": [],
+      "input": "issuer",
+      "label": "empty trust lists",
+      "expected": {
+        "trusted": false,
+        "untrustedReasons": [
+          "issuer_certificate_not_found"
+        ]
+      },
+      "crlRequests": 0
+    },
+    {
+      "snapshot": "valid",
+      "custom": [],
+      "mode": "skip",
+      "trustLists": [
+        "aamva_dts"
+      ],
+      "input": "issuer",
+      "label": "trust list mismatch",
+      "expected": {
+        "trusted": false,
+        "issuer": {
+          "issuer_id": "x509_aki:rX7vmMbQz-Qkb83hZ7xXO4PRJKA",
+          "entity_type": "government",
+          "entity_metadata": {
+            "country": "JP"
+          },
+          "display": {
+            "name": "Japan Agency for Local Authority Information Systems"
+          },
+          "trust_scopes": [
+            "government_issued_id"
+          ],
+          "certificates": [
+            {
+              "data": "-----BEGIN CERTIFICATE-----\nMIIDCjCCApGgAwIBAgIUT7ewHKPNZzGl5ElpnnFlquqtE58wCgYIKoZIzj0EAwMw\nZDEWMBQGA1UEAwwNbW5jbWRvY1Jvb3RDQTE9MDsGA1UECgw0SmFwYW4gQWdlbmN5\nIGZvciBMb2NhbCBBdXRob3JpdHkgSW5mb3JtYXRpb24gU3lzdGVtczELMAkGA1UE\nBhMCSlAwHhcNMjUwMTI5MDIyMzA0WhcNMzAwNTI4MDIyMzAzWjBkMRYwFAYDVQQD\nDA1tbmNtZG9jUm9vdENBMT0wOwYDVQQKDDRKYXBhbiBBZ2VuY3kgZm9yIExvY2Fs\nIEF1dGhvcml0eSBJbmZvcm1hdGlvbiBTeXN0ZW1zMQswCQYDVQQGEwJKUDB2MBAG\nByqGSM49AgEGBSuBBAAiA2IABPs5eNtlqJyCoVQwJao/duWq/kKCD1gqK4jtKUrB\nmnwHQTHjZrIcmTajXjQEsNutsCtZ/ojqeXm/8yCJiCN9OiR2WfqGbnPtQzE2+Ytf\njmxSoPicmEu9dQdXv21VNBlBSaOCAQIwgf8wEgYDVR0TAQH/BAgwBgEB/wIBADAf\nBgNVHSMEGDAWgBStfu+YxtDP5CRvzeFnvFc7g9EkoDAjBgNVHRIEHDAahhhodHRw\nczovL3d3dy5qLWxpcy5nby5qcC8wIwYDVR0RBBwwGoYYaHR0cHM6Ly93d3cuai1s\naXMuZ28uanAvME8GA1UdHwRIMEYwRKBCoECGPmh0dHBzOi8vZHRzLm1kb2MtaWFj\nYS5kaWdpdGFsLmdvLmpwL2NlcnRpZmljYXRlL2xhdGVzdC9tbmMuY3JsMB0GA1Ud\nDgQWBBStfu+YxtDP5CRvzeFnvFc7g9EkoDAOBgNVHQ8BAf8EBAMCAQYwCgYIKoZI\nzj0EAwMDZwAwZAIwfvAoBLAvEguWEqdFOiDsLo40FLIKjOQS1V6/6vo5vI8qd/aa\nF8ATsq7kz5v3D6qUAjATlIU/74tGYia0+aBIQ8+LOvAD9J7C51R64uvi6kf5lgdy\n09mop3x9Wxf+Ofy3nrE=\n-----END CERTIFICATE-----",
+              "format": "pem",
+              "trust_lists": [
+                "uv"
+              ],
+              "trusted": false,
+              "revocationStatus": "not_checked",
+              "untrustedReasons": [
+                "issuer_certificate_not_in_trust_lists"
+              ]
+            }
+          ]
+        },
+        "untrustedReasons": [
+          "issuer_certificate_not_in_trust_lists"
+        ]
+      },
+      "crlRequests": 0
+    },
+    {
+      "snapshot": "valid",
+      "custom": [],
+      "mode": "skip",
+      "trustLists": [
+        "uv"
+      ],
+      "input": "issuer",
+      "label": "scope mismatch",
+      "scope": "document_signing",
+      "expected": {
+        "trusted": false,
+        "issuer": {
+          "issuer_id": "x509_aki:rX7vmMbQz-Qkb83hZ7xXO4PRJKA",
+          "entity_type": "government",
+          "entity_metadata": {
+            "country": "JP"
+          },
+          "display": {
+            "name": "Japan Agency for Local Authority Information Systems"
+          },
+          "trust_scopes": [
+            "government_issued_id"
+          ],
+          "certificates": [
+            {
+              "data": "-----BEGIN CERTIFICATE-----\nMIIDCjCCApGgAwIBAgIUT7ewHKPNZzGl5ElpnnFlquqtE58wCgYIKoZIzj0EAwMw\nZDEWMBQGA1UEAwwNbW5jbWRvY1Jvb3RDQTE9MDsGA1UECgw0SmFwYW4gQWdlbmN5\nIGZvciBMb2NhbCBBdXRob3JpdHkgSW5mb3JtYXRpb24gU3lzdGVtczELMAkGA1UE\nBhMCSlAwHhcNMjUwMTI5MDIyMzA0WhcNMzAwNTI4MDIyMzAzWjBkMRYwFAYDVQQD\nDA1tbmNtZG9jUm9vdENBMT0wOwYDVQQKDDRKYXBhbiBBZ2VuY3kgZm9yIExvY2Fs\nIEF1dGhvcml0eSBJbmZvcm1hdGlvbiBTeXN0ZW1zMQswCQYDVQQGEwJKUDB2MBAG\nByqGSM49AgEGBSuBBAAiA2IABPs5eNtlqJyCoVQwJao/duWq/kKCD1gqK4jtKUrB\nmnwHQTHjZrIcmTajXjQEsNutsCtZ/ojqeXm/8yCJiCN9OiR2WfqGbnPtQzE2+Ytf\njmxSoPicmEu9dQdXv21VNBlBSaOCAQIwgf8wEgYDVR0TAQH/BAgwBgEB/wIBADAf\nBgNVHSMEGDAWgBStfu+YxtDP5CRvzeFnvFc7g9EkoDAjBgNVHRIEHDAahhhodHRw\nczovL3d3dy5qLWxpcy5nby5qcC8wIwYDVR0RBBwwGoYYaHR0cHM6Ly93d3cuai1s\naXMuZ28uanAvME8GA1UdHwRIMEYwRKBCoECGPmh0dHBzOi8vZHRzLm1kb2MtaWFj\nYS5kaWdpdGFsLmdvLmpwL2NlcnRpZmljYXRlL2xhdGVzdC9tbmMuY3JsMB0GA1Ud\nDgQWBBStfu+YxtDP5CRvzeFnvFc7g9EkoDAOBgNVHQ8BAf8EBAMCAQYwCgYIKoZI\nzj0EAwMDZwAwZAIwfvAoBLAvEguWEqdFOiDsLo40FLIKjOQS1V6/6vo5vI8qd/aa\nF8ATsq7kz5v3D6qUAjATlIU/74tGYia0+aBIQ8+LOvAD9J7C51R64uvi6kf5lgdy\n09mop3x9Wxf+Ofy3nrE=\n-----END CERTIFICATE-----",
+              "format": "pem",
+              "trust_lists": [
+                "uv"
+              ],
+              "trusted": false,
+              "revocationStatus": "not_checked",
+              "untrustedReasons": [
+                "issuer_missing_required_trust_scope"
+              ]
+            }
+          ]
+        },
+        "untrustedReasons": [
+          "issuer_missing_required_trust_scope"
+        ]
+      },
+      "crlRequests": 0
+    },
+    {
+      "snapshot": "valid",
+      "custom": [],
+      "mode": "skip",
+      "trustLists": [
+        "uv"
+      ],
+      "input": null,
+      "label": "missing certificate",
+      "expected": {
+        "trusted": false,
+        "untrustedReasons": [
+          "certificate_missing"
+        ]
+      },
+      "crlRequests": 0
+    },
+    {
+      "snapshot": "valid",
+      "custom": [],
+      "mode": "skip",
+      "trustLists": [
+        "uv"
+      ],
+      "input": "noAKI",
+      "label": "missing AKI",
+      "expected": {
+        "trusted": false,
+        "untrustedReasons": [
+          "certificate_aki_missing"
+        ]
+      },
+      "crlRequests": 0
+    },
+    {
+      "snapshot": "empty",
+      "custom": [],
+      "mode": "skip",
+      "trustLists": [
+        "uv"
+      ],
+      "input": "issuer",
+      "label": "empty snapshot",
+      "expected": {
+        "trusted": false,
+        "untrustedReasons": [
+          "issuer_certificate_not_found"
+        ]
+      },
+      "crlRequests": 0
+    },
+    {
+      "snapshot": "empty",
+      "custom": [
+        "issuer"
+      ],
+      "mode": "skip",
+      "trustLists": [
+        "uv"
+      ],
+      "input": "issuer",
+      "label": "local issuer and empty snapshot",
+      "expected": {
+        "trusted": true,
+        "issuer": {
+          "issuer_id": "x509_aki:rX7vmMbQz-Qkb83hZ7xXO4PRJKA",
+          "entity_type": "other",
+          "entity_metadata": {
+            "country": "JP"
+          },
+          "display": {
+            "name": "Japan Agency for Local Authority Information Systems"
+          },
+          "trust_scopes": [],
+          "certificates": [
+            {
+              "data": "-----BEGIN CERTIFICATE-----\nMIIDCjCCApGgAwIBAgIUT7ewHKPNZzGl5ElpnnFlquqtE58wCgYIKoZIzj0EAwMw\nZDEWMBQGA1UEAwwNbW5jbWRvY1Jvb3RDQTE9MDsGA1UECgw0SmFwYW4gQWdlbmN5\nIGZvciBMb2NhbCBBdXRob3JpdHkgSW5mb3JtYXRpb24gU3lzdGVtczELMAkGA1UE\nBhMCSlAwHhcNMjUwMTI5MDIyMzA0WhcNMzAwNTI4MDIyMzAzWjBkMRYwFAYDVQQD\nDA1tbmNtZG9jUm9vdENBMT0wOwYDVQQKDDRKYXBhbiBBZ2VuY3kgZm9yIExvY2Fs\nIEF1dGhvcml0eSBJbmZvcm1hdGlvbiBTeXN0ZW1zMQswCQYDVQQGEwJKUDB2MBAG\nByqGSM49AgEGBSuBBAAiA2IABPs5eNtlqJyCoVQwJao/duWq/kKCD1gqK4jtKUrB\nmnwHQTHjZrIcmTajXjQEsNutsCtZ/ojqeXm/8yCJiCN9OiR2WfqGbnPtQzE2+Ytf\njmxSoPicmEu9dQdXv21VNBlBSaOCAQIwgf8wEgYDVR0TAQH/BAgwBgEB/wIBADAf\nBgNVHSMEGDAWgBStfu+YxtDP5CRvzeFnvFc7g9EkoDAjBgNVHRIEHDAahhhodHRw\nczovL3d3dy5qLWxpcy5nby5qcC8wIwYDVR0RBBwwGoYYaHR0cHM6Ly93d3cuai1s\naXMuZ28uanAvME8GA1UdHwRIMEYwRKBCoECGPmh0dHBzOi8vZHRzLm1kb2MtaWFj\nYS5kaWdpdGFsLmdvLmpwL2NlcnRpZmljYXRlL2xhdGVzdC9tbmMuY3JsMB0GA1Ud\nDgQWBBStfu+YxtDP5CRvzeFnvFc7g9EkoDAOBgNVHQ8BAf8EBAMCAQYwCgYIKoZI\nzj0EAwMDZwAwZAIwfvAoBLAvEguWEqdFOiDsLo40FLIKjOQS1V6/6vo5vI8qd/aa\nF8ATsq7kz5v3D6qUAjATlIU/74tGYia0+aBIQ8+LOvAD9J7C51R64uvi6kf5lgdy\n09mop3x9Wxf+Ofy3nrE=\n-----END CERTIFICATE-----",
+              "format": "pem",
+              "trust_lists": [
+                "user_provided"
+              ],
+              "trusted": true,
+              "revocationStatus": "not_checked",
+              "untrustedReasons": []
+            }
+          ]
+        },
+        "untrustedReasons": []
+      },
+      "crlRequests": 0
+    },
+    {
+      "snapshot": "valid",
+      "custom": [
+        {
+          "data": "issuer",
+          "display": {
+            "name": "Local issuer"
+          },
+          "trust_scopes": [
+            "document_signing"
+          ]
+        }
+      ],
+      "mode": "skip",
+      "trustLists": [
+        "uv"
+      ],
+      "input": "issuer",
+      "label": "local metadata overrides snapshot",
+      "expected": {
+        "trusted": true,
+        "issuer": {
+          "issuer_id": "x509_aki:rX7vmMbQz-Qkb83hZ7xXO4PRJKA",
+          "entity_type": "other",
+          "entity_metadata": {
+            "country": "JP"
+          },
+          "display": {
+            "name": "Local issuer"
+          },
+          "trust_scopes": [
+            "document_signing",
+            "government_issued_id"
+          ],
+          "certificates": [
+            {
+              "data": "-----BEGIN CERTIFICATE-----\nMIIDCjCCApGgAwIBAgIUT7ewHKPNZzGl5ElpnnFlquqtE58wCgYIKoZIzj0EAwMw\nZDEWMBQGA1UEAwwNbW5jbWRvY1Jvb3RDQTE9MDsGA1UECgw0SmFwYW4gQWdlbmN5\nIGZvciBMb2NhbCBBdXRob3JpdHkgSW5mb3JtYXRpb24gU3lzdGVtczELMAkGA1UE\nBhMCSlAwHhcNMjUwMTI5MDIyMzA0WhcNMzAwNTI4MDIyMzAzWjBkMRYwFAYDVQQD\nDA1tbmNtZG9jUm9vdENBMT0wOwYDVQQKDDRKYXBhbiBBZ2VuY3kgZm9yIExvY2Fs\nIEF1dGhvcml0eSBJbmZvcm1hdGlvbiBTeXN0ZW1zMQswCQYDVQQGEwJKUDB2MBAG\nByqGSM49AgEGBSuBBAAiA2IABPs5eNtlqJyCoVQwJao/duWq/kKCD1gqK4jtKUrB\nmnwHQTHjZrIcmTajXjQEsNutsCtZ/ojqeXm/8yCJiCN9OiR2WfqGbnPtQzE2+Ytf\njmxSoPicmEu9dQdXv21VNBlBSaOCAQIwgf8wEgYDVR0TAQH/BAgwBgEB/wIBADAf\nBgNVHSMEGDAWgBStfu+YxtDP5CRvzeFnvFc7g9EkoDAjBgNVHRIEHDAahhhodHRw\nczovL3d3dy5qLWxpcy5nby5qcC8wIwYDVR0RBBwwGoYYaHR0cHM6Ly93d3cuai1s\naXMuZ28uanAvME8GA1UdHwRIMEYwRKBCoECGPmh0dHBzOi8vZHRzLm1kb2MtaWFj\nYS5kaWdpdGFsLmdvLmpwL2NlcnRpZmljYXRlL2xhdGVzdC9tbmMuY3JsMB0GA1Ud\nDgQWBBStfu+YxtDP5CRvzeFnvFc7g9EkoDAOBgNVHQ8BAf8EBAMCAQYwCgYIKoZI\nzj0EAwMDZwAwZAIwfvAoBLAvEguWEqdFOiDsLo40FLIKjOQS1V6/6vo5vI8qd/aa\nF8ATsq7kz5v3D6qUAjATlIU/74tGYia0+aBIQ8+LOvAD9J7C51R64uvi6kf5lgdy\n09mop3x9Wxf+Ofy3nrE=\n-----END CERTIFICATE-----",
+              "format": "pem",
+              "trust_lists": [
+                "user_provided",
+                "uv"
+              ],
+              "trusted": true,
+              "revocationStatus": "not_checked",
+              "untrustedReasons": []
+            }
+          ]
+        },
+        "untrustedReasons": []
+      },
+      "crlRequests": 0
+    },
+    {
+      "snapshot": "tampered",
+      "custom": [],
+      "mode": "skip",
+      "trustLists": [
+        "uv"
+      ],
+      "input": "issuer",
+      "label": "tampered snapshot",
+      "expected": {
+        "trusted": false,
+        "untrustedReasons": [
+          "issuer_certificate_not_found",
+          "issuer_fetch_failed"
+        ]
+      },
+      "crlRequests": 0
+    },
+    {
+      "snapshot": "tampered",
+      "custom": [
+        "issuer"
+      ],
+      "mode": "skip",
+      "trustLists": [
+        "uv"
+      ],
+      "input": "issuer",
+      "label": "local trust during signature failure",
+      "expected": {
+        "trusted": true,
+        "issuer": {
+          "issuer_id": "x509_aki:rX7vmMbQz-Qkb83hZ7xXO4PRJKA",
+          "entity_type": "other",
+          "entity_metadata": {
+            "country": "JP"
+          },
+          "display": {
+            "name": "Japan Agency for Local Authority Information Systems"
+          },
+          "trust_scopes": [],
+          "certificates": [
+            {
+              "data": "-----BEGIN CERTIFICATE-----\nMIIDCjCCApGgAwIBAgIUT7ewHKPNZzGl5ElpnnFlquqtE58wCgYIKoZIzj0EAwMw\nZDEWMBQGA1UEAwwNbW5jbWRvY1Jvb3RDQTE9MDsGA1UECgw0SmFwYW4gQWdlbmN5\nIGZvciBMb2NhbCBBdXRob3JpdHkgSW5mb3JtYXRpb24gU3lzdGVtczELMAkGA1UE\nBhMCSlAwHhcNMjUwMTI5MDIyMzA0WhcNMzAwNTI4MDIyMzAzWjBkMRYwFAYDVQQD\nDA1tbmNtZG9jUm9vdENBMT0wOwYDVQQKDDRKYXBhbiBBZ2VuY3kgZm9yIExvY2Fs\nIEF1dGhvcml0eSBJbmZvcm1hdGlvbiBTeXN0ZW1zMQswCQYDVQQGEwJKUDB2MBAG\nByqGSM49AgEGBSuBBAAiA2IABPs5eNtlqJyCoVQwJao/duWq/kKCD1gqK4jtKUrB\nmnwHQTHjZrIcmTajXjQEsNutsCtZ/ojqeXm/8yCJiCN9OiR2WfqGbnPtQzE2+Ytf\njmxSoPicmEu9dQdXv21VNBlBSaOCAQIwgf8wEgYDVR0TAQH/BAgwBgEB/wIBADAf\nBgNVHSMEGDAWgBStfu+YxtDP5CRvzeFnvFc7g9EkoDAjBgNVHRIEHDAahhhodHRw\nczovL3d3dy5qLWxpcy5nby5qcC8wIwYDVR0RBBwwGoYYaHR0cHM6Ly93d3cuai1s\naXMuZ28uanAvME8GA1UdHwRIMEYwRKBCoECGPmh0dHBzOi8vZHRzLm1kb2MtaWFj\nYS5kaWdpdGFsLmdvLmpwL2NlcnRpZmljYXRlL2xhdGVzdC9tbmMuY3JsMB0GA1Ud\nDgQWBBStfu+YxtDP5CRvzeFnvFc7g9EkoDAOBgNVHQ8BAf8EBAMCAQYwCgYIKoZI\nzj0EAwMDZwAwZAIwfvAoBLAvEguWEqdFOiDsLo40FLIKjOQS1V6/6vo5vI8qd/aa\nF8ATsq7kz5v3D6qUAjATlIU/74tGYia0+aBIQ8+LOvAD9J7C51R64uvi6kf5lgdy\n09mop3x9Wxf+Ofy3nrE=\n-----END CERTIFICATE-----",
+              "format": "pem",
+              "trust_lists": [
+                "user_provided"
+              ],
+              "trusted": true,
+              "revocationStatus": "not_checked",
+              "untrustedReasons": []
+            }
+          ]
+        },
+        "untrustedReasons": []
+      },
+      "crlRequests": 0
+    },
+    {
+      "snapshot": "tampered",
+      "custom": [
+        "issuer"
+      ],
+      "mode": "skip",
+      "trustLists": [
+        "uv"
+      ],
+      "input": "issuer",
+      "label": "local scope failure during signature failure",
+      "scope": "document_signing",
+      "expected": {
+        "trusted": false,
+        "issuer": {
+          "issuer_id": "x509_aki:rX7vmMbQz-Qkb83hZ7xXO4PRJKA",
+          "entity_type": "other",
+          "entity_metadata": {
+            "country": "JP"
+          },
+          "display": {
+            "name": "Japan Agency for Local Authority Information Systems"
+          },
+          "trust_scopes": [],
+          "certificates": [
+            {
+              "data": "-----BEGIN CERTIFICATE-----\nMIIDCjCCApGgAwIBAgIUT7ewHKPNZzGl5ElpnnFlquqtE58wCgYIKoZIzj0EAwMw\nZDEWMBQGA1UEAwwNbW5jbWRvY1Jvb3RDQTE9MDsGA1UECgw0SmFwYW4gQWdlbmN5\nIGZvciBMb2NhbCBBdXRob3JpdHkgSW5mb3JtYXRpb24gU3lzdGVtczELMAkGA1UE\nBhMCSlAwHhcNMjUwMTI5MDIyMzA0WhcNMzAwNTI4MDIyMzAzWjBkMRYwFAYDVQQD\nDA1tbmNtZG9jUm9vdENBMT0wOwYDVQQKDDRKYXBhbiBBZ2VuY3kgZm9yIExvY2Fs\nIEF1dGhvcml0eSBJbmZvcm1hdGlvbiBTeXN0ZW1zMQswCQYDVQQGEwJKUDB2MBAG\nByqGSM49AgEGBSuBBAAiA2IABPs5eNtlqJyCoVQwJao/duWq/kKCD1gqK4jtKUrB\nmnwHQTHjZrIcmTajXjQEsNutsCtZ/ojqeXm/8yCJiCN9OiR2WfqGbnPtQzE2+Ytf\njmxSoPicmEu9dQdXv21VNBlBSaOCAQIwgf8wEgYDVR0TAQH/BAgwBgEB/wIBADAf\nBgNVHSMEGDAWgBStfu+YxtDP5CRvzeFnvFc7g9EkoDAjBgNVHRIEHDAahhhodHRw\nczovL3d3dy5qLWxpcy5nby5qcC8wIwYDVR0RBBwwGoYYaHR0cHM6Ly93d3cuai1s\naXMuZ28uanAvME8GA1UdHwRIMEYwRKBCoECGPmh0dHBzOi8vZHRzLm1kb2MtaWFj\nYS5kaWdpdGFsLmdvLmpwL2NlcnRpZmljYXRlL2xhdGVzdC9tbmMuY3JsMB0GA1Ud\nDgQWBBStfu+YxtDP5CRvzeFnvFc7g9EkoDAOBgNVHQ8BAf8EBAMCAQYwCgYIKoZI\nzj0EAwMDZwAwZAIwfvAoBLAvEguWEqdFOiDsLo40FLIKjOQS1V6/6vo5vI8qd/aa\nF8ATsq7kz5v3D6qUAjATlIU/74tGYia0+aBIQ8+LOvAD9J7C51R64uvi6kf5lgdy\n09mop3x9Wxf+Ofy3nrE=\n-----END CERTIFICATE-----",
+              "format": "pem",
+              "trust_lists": [
+                "user_provided"
+              ],
+              "trusted": false,
+              "revocationStatus": "not_checked",
+              "untrustedReasons": [
+                "issuer_missing_required_trust_scope"
+              ]
+            }
+          ]
+        },
+        "untrustedReasons": [
+          "issuer_missing_required_trust_scope",
+          "issuer_fetch_failed"
+        ]
+      },
+      "crlRequests": 0
+    },
+    {
+      "snapshot": "valid",
+      "custom": [],
+      "mode": "required",
+      "trustLists": [
+        "uv"
+      ],
+      "input": "issuer",
+      "label": "required CRL remains online",
+      "expected": {
+        "trusted": false,
+        "issuer": {
+          "issuer_id": "x509_aki:rX7vmMbQz-Qkb83hZ7xXO4PRJKA",
+          "entity_type": "government",
+          "entity_metadata": {
+            "country": "JP"
+          },
+          "display": {
+            "name": "Japan Agency for Local Authority Information Systems"
+          },
+          "trust_scopes": [
+            "government_issued_id"
+          ],
+          "certificates": [
+            {
+              "data": "-----BEGIN CERTIFICATE-----\nMIIDCjCCApGgAwIBAgIUT7ewHKPNZzGl5ElpnnFlquqtE58wCgYIKoZIzj0EAwMw\nZDEWMBQGA1UEAwwNbW5jbWRvY1Jvb3RDQTE9MDsGA1UECgw0SmFwYW4gQWdlbmN5\nIGZvciBMb2NhbCBBdXRob3JpdHkgSW5mb3JtYXRpb24gU3lzdGVtczELMAkGA1UE\nBhMCSlAwHhcNMjUwMTI5MDIyMzA0WhcNMzAwNTI4MDIyMzAzWjBkMRYwFAYDVQQD\nDA1tbmNtZG9jUm9vdENBMT0wOwYDVQQKDDRKYXBhbiBBZ2VuY3kgZm9yIExvY2Fs\nIEF1dGhvcml0eSBJbmZvcm1hdGlvbiBTeXN0ZW1zMQswCQYDVQQGEwJKUDB2MBAG\nByqGSM49AgEGBSuBBAAiA2IABPs5eNtlqJyCoVQwJao/duWq/kKCD1gqK4jtKUrB\nmnwHQTHjZrIcmTajXjQEsNutsCtZ/ojqeXm/8yCJiCN9OiR2WfqGbnPtQzE2+Ytf\njmxSoPicmEu9dQdXv21VNBlBSaOCAQIwgf8wEgYDVR0TAQH/BAgwBgEB/wIBADAf\nBgNVHSMEGDAWgBStfu+YxtDP5CRvzeFnvFc7g9EkoDAjBgNVHRIEHDAahhhodHRw\nczovL3d3dy5qLWxpcy5nby5qcC8wIwYDVR0RBBwwGoYYaHR0cHM6Ly93d3cuai1s\naXMuZ28uanAvME8GA1UdHwRIMEYwRKBCoECGPmh0dHBzOi8vZHRzLm1kb2MtaWFj\nYS5kaWdpdGFsLmdvLmpwL2NlcnRpZmljYXRlL2xhdGVzdC9tbmMuY3JsMB0GA1Ud\nDgQWBBStfu+YxtDP5CRvzeFnvFc7g9EkoDAOBgNVHQ8BAf8EBAMCAQYwCgYIKoZI\nzj0EAwMDZwAwZAIwfvAoBLAvEguWEqdFOiDsLo40FLIKjOQS1V6/6vo5vI8qd/aa\nF8ATsq7kz5v3D6qUAjATlIU/74tGYia0+aBIQ8+LOvAD9J7C51R64uvi6kf5lgdy\n09mop3x9Wxf+Ofy3nrE=\n-----END CERTIFICATE-----",
+              "format": "pem",
+              "trust_lists": [
+                "uv"
+              ],
+              "trusted": false,
+              "revocationStatus": "not_checked",
+              "untrustedReasons": [
+                "revocation_status_undetermined"
+              ]
+            }
+          ]
+        },
+        "untrustedReasons": [
+          "revocation_status_undetermined"
+        ]
+      },
+      "crlRequests": 1
+    },
+    {
+      "snapshot": "valid",
+      "custom": [],
+      "mode": "best_effort",
+      "trustLists": [
+        "uv"
+      ],
+      "input": "issuer",
+      "label": "best effort CRL remains online",
+      "expected": {
+        "trusted": true,
+        "issuer": {
+          "issuer_id": "x509_aki:rX7vmMbQz-Qkb83hZ7xXO4PRJKA",
+          "entity_type": "government",
+          "entity_metadata": {
+            "country": "JP"
+          },
+          "display": {
+            "name": "Japan Agency for Local Authority Information Systems"
+          },
+          "trust_scopes": [
+            "government_issued_id"
+          ],
+          "certificates": [
+            {
+              "data": "-----BEGIN CERTIFICATE-----\nMIIDCjCCApGgAwIBAgIUT7ewHKPNZzGl5ElpnnFlquqtE58wCgYIKoZIzj0EAwMw\nZDEWMBQGA1UEAwwNbW5jbWRvY1Jvb3RDQTE9MDsGA1UECgw0SmFwYW4gQWdlbmN5\nIGZvciBMb2NhbCBBdXRob3JpdHkgSW5mb3JtYXRpb24gU3lzdGVtczELMAkGA1UE\nBhMCSlAwHhcNMjUwMTI5MDIyMzA0WhcNMzAwNTI4MDIyMzAzWjBkMRYwFAYDVQQD\nDA1tbmNtZG9jUm9vdENBMT0wOwYDVQQKDDRKYXBhbiBBZ2VuY3kgZm9yIExvY2Fs\nIEF1dGhvcml0eSBJbmZvcm1hdGlvbiBTeXN0ZW1zMQswCQYDVQQGEwJKUDB2MBAG\nByqGSM49AgEGBSuBBAAiA2IABPs5eNtlqJyCoVQwJao/duWq/kKCD1gqK4jtKUrB\nmnwHQTHjZrIcmTajXjQEsNutsCtZ/ojqeXm/8yCJiCN9OiR2WfqGbnPtQzE2+Ytf\njmxSoPicmEu9dQdXv21VNBlBSaOCAQIwgf8wEgYDVR0TAQH/BAgwBgEB/wIBADAf\nBgNVHSMEGDAWgBStfu+YxtDP5CRvzeFnvFc7g9EkoDAjBgNVHRIEHDAahhhodHRw\nczovL3d3dy5qLWxpcy5nby5qcC8wIwYDVR0RBBwwGoYYaHR0cHM6Ly93d3cuai1s\naXMuZ28uanAvME8GA1UdHwRIMEYwRKBCoECGPmh0dHBzOi8vZHRzLm1kb2MtaWFj\nYS5kaWdpdGFsLmdvLmpwL2NlcnRpZmljYXRlL2xhdGVzdC9tbmMuY3JsMB0GA1Ud\nDgQWBBStfu+YxtDP5CRvzeFnvFc7g9EkoDAOBgNVHQ8BAf8EBAMCAQYwCgYIKoZI\nzj0EAwMDZwAwZAIwfvAoBLAvEguWEqdFOiDsLo40FLIKjOQS1V6/6vo5vI8qd/aa\nF8ATsq7kz5v3D6qUAjATlIU/74tGYia0+aBIQ8+LOvAD9J7C51R64uvi6kf5lgdy\n09mop3x9Wxf+Ofy3nrE=\n-----END CERTIFICATE-----",
+              "format": "pem",
+              "trust_lists": [
+                "uv"
+              ],
+              "trusted": true,
+              "revocationStatus": "not_checked",
+              "untrustedReasons": []
+            }
+          ]
+        },
+        "untrustedReasons": []
+      },
+      "crlRequests": 1
+    }
+  ],
+  "signingCertificate": "-----BEGIN CERTIFICATE-----\nMIIBNDCB26ADAgECAgEBMAoGCCqGSM49BAMCMCIxIDAeBgNVBAMMF1NuYXBzaG90\nIGZpeHR1cmUgc2lnbmVyMCIYDzIwMDAwMTAxMDAwMDAwWhgPMjEwMDAxMDEwMDAw\nMDBaMCIxIDAeBgNVBAMMF1NuYXBzaG90IGZpeHR1cmUgc2lnbmVyMFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAE8YW0MlrVLmwKdugwcdAg18zFEFveMMVG9ZAerS7p\n584JSfDmbaGE+hmmwzyoANiMvks33bykivjqD3uN3/bQ3TAKBggqhkjOPQQDAgNI\nADBFAiBzl6U+3fzCZZndcaFxd+RhjovG9bkeGR3UjvPQzYHglAIhANC4NJQL+OMd\n1MG2UZDDOWrrCqvdr2l+uc5Yl2OdQcxy\n-----END CERTIFICATE-----",
+  "unknownFieldsIssuer": {
+    "issuer_id": "x509_aki:rX7vmMbQz-Qkb83hZ7xXO4PRJKA",
+    "entity_type": "government",
+    "entity_metadata": {
+      "country": "JP"
+    },
+    "display": {
+      "name": "Japan Agency for Local Authority Information Systems"
+    },
+    "trust_scopes": [
+      "government_issued_id"
+    ],
+    "certificates": [
+      {
+        "data": "-----BEGIN CERTIFICATE-----\nMIIDCjCCApGgAwIBAgIUT7ewHKPNZzGl5ElpnnFlquqtE58wCgYIKoZIzj0EAwMw\nZDEWMBQGA1UEAwwNbW5jbWRvY1Jvb3RDQTE9MDsGA1UECgw0SmFwYW4gQWdlbmN5\nIGZvciBMb2NhbCBBdXRob3JpdHkgSW5mb3JtYXRpb24gU3lzdGVtczELMAkGA1UE\nBhMCSlAwHhcNMjUwMTI5MDIyMzA0WhcNMzAwNTI4MDIyMzAzWjBkMRYwFAYDVQQD\nDA1tbmNtZG9jUm9vdENBMT0wOwYDVQQKDDRKYXBhbiBBZ2VuY3kgZm9yIExvY2Fs\nIEF1dGhvcml0eSBJbmZvcm1hdGlvbiBTeXN0ZW1zMQswCQYDVQQGEwJKUDB2MBAG\nByqGSM49AgEGBSuBBAAiA2IABPs5eNtlqJyCoVQwJao/duWq/kKCD1gqK4jtKUrB\nmnwHQTHjZrIcmTajXjQEsNutsCtZ/ojqeXm/8yCJiCN9OiR2WfqGbnPtQzE2+Ytf\njmxSoPicmEu9dQdXv21VNBlBSaOCAQIwgf8wEgYDVR0TAQH/BAgwBgEB/wIBADAf\nBgNVHSMEGDAWgBStfu+YxtDP5CRvzeFnvFc7g9EkoDAjBgNVHRIEHDAahhhodHRw\nczovL3d3dy5qLWxpcy5nby5qcC8wIwYDVR0RBBwwGoYYaHR0cHM6Ly93d3cuai1s\naXMuZ28uanAvME8GA1UdHwRIMEYwRKBCoECGPmh0dHBzOi8vZHRzLm1kb2MtaWFj\nYS5kaWdpdGFsLmdvLmpwL2NlcnRpZmljYXRlL2xhdGVzdC9tbmMuY3JsMB0GA1Ud\nDgQWBBStfu+YxtDP5CRvzeFnvFc7g9EkoDAOBgNVHQ8BAf8EBAMCAQYwCgYIKoZI\nzj0EAwMDZwAwZAIwfvAoBLAvEguWEqdFOiDsLo40FLIKjOQS1V6/6vo5vI8qd/aa\nF8ATsq7kz5v3D6qUAjATlIU/74tGYia0+aBIQ8+LOvAD9J7C51R64uvi6kf5lgdy\n09mop3x9Wxf+Ofy3nrE=\n-----END CERTIFICATE-----",
+        "format": "pem",
+        "trust_lists": [
+          "uv"
+        ]
+      }
+    ],
+    "future": {
+      "boolean": true,
+      "nested": {
+        "z": [
+          false,
+          1e+21,
+          "é 😀"
+        ],
+        "a": null
+      }
+    },
+    "signature": "MEUCIQDTLlYiijlIJ1eYG5gBVzxdpWdfV3uyBrO5K/2+lX8hsgIgIuhZdnQRG611QVYvoUXir3cFwgYo7Qjb1kRFcmbPBYM="
+  }
+}

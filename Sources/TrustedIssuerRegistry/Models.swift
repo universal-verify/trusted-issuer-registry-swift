@@ -119,33 +119,38 @@ public struct RegistryOptions: Sendable {
   public let cacheEnabled: Bool
   /// Maximum in-memory cache lifetime, in seconds.
   public let cacheTTL: TimeInterval
+  /// A fixed source of signed issuers that replaces live registry and deprecation lookups.
+  public let registrySnapshot: RegistrySnapshot?
 
   public init(
     trustedIssuerCertificates: [UserTrustedIssuerCertificate] = [],
     revocationCheckMode: RevocationCheckMode = .skip, timeout: TimeInterval = 10,
-    cacheEnabled: Bool = true, cacheTTL: TimeInterval = 86_400
+    cacheEnabled: Bool = true, cacheTTL: TimeInterval = 86_400,
+    registrySnapshot: RegistrySnapshot? = nil
   ) {
     self.trustedIssuerCertificates = trustedIssuerCertificates
     self.revocationCheckMode = revocationCheckMode
     self.timeout = timeout
     self.cacheEnabled = cacheEnabled
     self.cacheTTL = cacheTTL
+    self.registrySnapshot = registrySnapshot
   }
 
   public init<PEMs: Sequence>(
     trustedIssuerCertificates: PEMs, revocationCheckMode: RevocationCheckMode = .skip,
-    timeout: TimeInterval = 10, cacheEnabled: Bool = true, cacheTTL: TimeInterval = 86_400
+    timeout: TimeInterval = 10, cacheEnabled: Bool = true, cacheTTL: TimeInterval = 86_400,
+    registrySnapshot: RegistrySnapshot? = nil
   ) where PEMs.Element == String {
     self.init(
       trustedIssuerCertificates: trustedIssuerCertificates.map { .init(pem: $0) },
       revocationCheckMode: revocationCheckMode, timeout: timeout,
-      cacheEnabled: cacheEnabled, cacheTTL: cacheTTL
+      cacheEnabled: cacheEnabled, cacheTTL: cacheTTL, registrySnapshot: registrySnapshot
     )
   }
 }
 
 public struct ResolveCertificateTrustOptions: Sendable {
-  /// Empty means only user-provided issuers, without a CDN lookup.
+  /// Empty means only user-provided issuers, without a snapshot or CDN lookup.
   public let trustLists: [TrustList]
   public let trustScope: TrustScope?
 
